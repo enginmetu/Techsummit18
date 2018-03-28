@@ -1,0 +1,1256 @@
+# 
+# Get location of Licensing Service
+# 
+# 3/28/2018 2:38 AM
+# 
+Get-LicLocation  -AddressType "WSL" -LicenseServerAddress "localhost" -LicenseServerPort 27000
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 2:38 AM
+# 
+Get-LicCertificate  -AdminAddress "https://localhost:8083"
+# Script completed successfully
+
+# 
+# Get the Licensing Service permissions for the current user
+# 
+# 3/28/2018 2:38 AM
+# 
+Get-LicEffectivePermission  -AdminAddress "https://localhost:8083" -CertHash "mPapw+W/8L+215I5JInbRHAoGC5E6l07iv0fexu6fFQB5Is3WDs+KIOboQvdkhSzIaw8KFZ1gBFqsa8vWoGnFg=="
+# Script completed successfully
+
+# 
+# Create Connection 'POC026'
+# 
+# 3/28/2018 2:40 AM
+# 
+Set-HypAdminConnection  -AdminAddress "localhost"
+
+New-Item  -ConnectionType "Custom" -CustomProperties "" -HypervisorAddress @("10.21.26.37") -Path @("XDHyp:\Connections\POC026") -PluginId "AcropolisFactory" -Scope @() -SecurePassword "System.Security.SecureString" -UserName "xd"
+# Script completed successfully
+
+# 
+# Full Desktop Deployment
+# 
+# 3/28/2018 2:44 AM
+# 
+Get-AcctDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-HypDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-AppLibDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-ProvDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-BrokerDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-MonitorDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -DataStore "Site" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-SfDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-OrchDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-TrustDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-EnvTestDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-AnalyticsDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-ConfigDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-LogDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -DataStore "Site" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-AdminDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalSite" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-LogDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalLogging" -DataStore "Logging" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-MonitorDBSchema  -AdminAddress "XD.ntnxlab.local" -DatabaseName "CitrixUptick CapitalMonitoring" -DataStore "Monitor" -LocalDatabase -ScriptType "FullDatabase" -ServiceGroupName "Uptick Capital"
+
+Get-AcctDBConnection  -AdminAddress "localhost"
+
+Get-AcctServiceStatus  -AdminAddress "localhost"
+
+Set-AcctDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-HypDBConnection  -AdminAddress "localhost"
+
+Get-HypServiceStatus  -AdminAddress "localhost"
+
+Set-HypDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-AppLibDBConnection  -AdminAddress "localhost"
+
+Get-AppLibServiceStatus  -AdminAddress "localhost"
+
+Set-AppLibDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-ProvDBConnection  -AdminAddress "localhost"
+
+Get-ProvServiceStatus  -AdminAddress "localhost"
+
+Set-ProvDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-BrokerDBConnection  -AdminAddress "localhost"
+
+Get-BrokerServiceStatus  -AdminAddress "localhost"
+
+Set-BrokerDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-MonitorDBConnection  -AdminAddress "localhost" -DataStore "Site"
+
+Get-MonitorServiceStatus  -AdminAddress "localhost"
+
+Set-MonitorDBConnection  -AdminAddress "localhost" -DataStore "Site" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-SfDBConnection  -AdminAddress "localhost"
+
+Get-SfServiceStatus  -AdminAddress "localhost"
+
+Set-SfDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-OrchDBConnection  -AdminAddress "localhost"
+
+Get-OrchServiceStatus  -AdminAddress "localhost"
+
+Set-OrchDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-TrustDBConnection  -AdminAddress "localhost"
+
+Get-TrustServiceStatus  -AdminAddress "localhost"
+
+Set-TrustDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-EnvTestDBConnection  -AdminAddress "localhost"
+
+Get-EnvTestServiceStatus  -AdminAddress "localhost"
+
+Set-EnvTestDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-AnalyticsDBConnection  -AdminAddress "localhost"
+
+Get-AnalyticsServiceStatus  -AdminAddress "localhost"
+
+Set-AnalyticsDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-ConfigDBConnection  -AdminAddress "localhost"
+
+Get-ConfigServiceStatus  -AdminAddress "localhost"
+
+Set-ConfigDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-LogDBConnection  -AdminAddress "localhost" -DataStore "Site"
+
+Get-LogServiceStatus  -AdminAddress "localhost"
+
+Set-LogDBConnection  -AdminAddress "localhost" -DataStore "Site" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-AdminDBConnection  -AdminAddress "localhost"
+
+Get-AdminServiceStatus  -AdminAddress "localhost"
+
+Set-AdminDBConnection  -AdminAddress "localhost" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalSite;Integrated Security=True"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 | Unregister-ConfigRegisteredServiceInstance -AdminAddress "localhost"
+
+Import-AdminRoleConfiguration  -AdminAddress "localhost" -Path "C:\Program Files\Citrix\XenDesktopPoshSdk\Module\Citrix.XenDesktop.Admin.V1\Citrix.XenDesktop.Admin\StudioRoleConfig\RoleConfigSigned.xml"
+
+Import-AdminRoleConfiguration  -AdminAddress "localhost" -Path "C:\Program Files\Citrix\XenDesktopPoshSdk\Module\Citrix.XenDesktop.Admin.V1\Citrix.XenDesktop.Admin\StudioRoleConfig\DirectorRoleConfigSigned.xml"
+
+Get-ConfigServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-AdminServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-LogServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-ConfigServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-AdminServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-LogServiceGroupMembership -AdminAddress "localhost"
+
+Import-ConfigFeatureTable  -AdminAddress "localhost" -Path "C:\Program Files\Citrix\XenDesktopPoshSdk\Module\Citrix.XenDesktop.Admin.V1\Citrix.XenDesktop.Admin\FeatureTable.xml"
+
+Set-ConfigSite  -AdminAddress "localhost" -SiteName "Uptick Capital"
+
+Get-ConfigServiceStatus  -AdminAddress "localhost"
+
+Get-LicLocation  -AddressType "WSL" -LicenseServerAddress "XD.ntnxlab.local" -LicenseServerPort 27000
+
+Set-ConfigSite  -AdminAddress "localhost" -LicenseServerName "XD.ntnxlab.local" -LicenseServerPort 27000 -LicenseServerUri "https://xd.ntnxlab.local:8083/" -LicensingModel "UserDevice" -ProductCode "XDT" -ProductEdition "PLT" -ProductVersion "7.15"
+
+Get-AcctServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-HypServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-AppLibServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-ProvServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-BrokerServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-MonitorServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-SfServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-OrchServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-TrustServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-EnvTestServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-AnalyticsServiceInstance -AdminAddress "localhost" | Register-ConfigServiceInstance -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-AcctServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-HypServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-AppLibServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-ProvServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-BrokerServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-MonitorServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-SfServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-OrchServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-TrustServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-EnvTestServiceGroupMembership -AdminAddress "localhost"
+
+Get-ConfigRegisteredServiceInstance -AdminAddress "localhost" -MaxRecordCount 2147483647 -ServiceType "Config" | Reset-AnalyticsServiceGroupMembership -AdminAddress "localhost"
+
+Get-LogDBConnection  -AdminAddress "localhost" -DataStore "Logging"
+
+Get-LogServiceStatus  -AdminAddress "localhost"
+
+Set-LogDBConnection  -AdminAddress "localhost" -DataStore "Logging" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalLogging;Integrated Security=True"
+
+Get-MonitorDBConnection  -AdminAddress "localhost" -DataStore "Monitor"
+
+Get-MonitorServiceStatus  -AdminAddress "localhost"
+
+Set-MonitorDBConnection  -AdminAddress "localhost" -DataStore "Monitor" -DBConnection "Server=XD\sqlexpress;Initial Catalog=CitrixUptick CapitalMonitoring;Integrated Security=True"
+
+Set-LogSite  -AdminAddress "localhost" -Locale "en" -State "Enabled"
+
+Set-ConfigSiteMetadata  -AdminAddress "localhost" -Name "ConfiguredComponents" -Value "Admin Config Log Acct Hyp AppLib Prov Broker Lic Monitor Pvs Sf Orch Trust EnvTest AppV Analytics"
+
+Reset-BrokerEnabledFeatureList  -AdminAddress "localhost"
+
+Rename-ConfigZone  -AdminAddress "localhost" -InputObject "00000000-0000-0000-0000-000000000000" -NewName "Primary"
+
+Set-ConfigZone  -AdminAddress "localhost" -Description "Default Primary Zone" -InputObject @("00000000-0000-0000-0000-000000000000") -NewUid "06cdfd16-a589-48cb-bdae-c0d660a990f5"
+
+Set-ConfigSiteMetadata  -AdminAddress "localhost" -Name "Upgrade_PolicyPublishedNamesCompleted" -Value "true"
+
+Get-LogSite  -AdminAddress "localhost"
+
+Start-LogHighLevelOperation  -AdminAddress "localhost" -Source "Studio" -StartTime "3/28/2018 9:42:35 AM" -Text "Full Desktop Deployment"
+
+Import-AnalyticsDataDefinition  -AdminAddress "localhost" -DataDefinition "C:\Program Files\Citrix\XenDesktopPoshSdk\Module\Citrix.XenDesktop.Admin.V1\Citrix.XenDesktop.Admin\DataPoints.xml" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4"
+
+Set-AnalyticsSite  -AdminAddress "localhost" -Enabled $True -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4"
+
+New-BrokerConfigurationSlot  -AdminAddress "localhost" -Description "UPM" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Name "UPM" -SettingsGroup "G=UPM"
+
+New-BrokerConfigurationSlot  -AdminAddress "localhost" -Description "RS" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Name "RS" -SettingsGroup "G=RECEIVER"
+
+New-BrokerConfigurationSlot  -AdminAddress "localhost" -Description "AppV" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Name "AppV" -SettingsGroup "G=AppV"
+
+New-BrokerConfigurationSlot  -AdminAddress "localhost" -Description "ApplicationStartDetails" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Name "ApplicationStartDetails" -SettingsGroup "G=ASD"
+
+New-BrokerConfigurationSlot  -AdminAddress "localhost" -Description "IsolationGroup" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Name "IsolationGroup" -SettingsGroup "G=IG"
+
+Get-SfIsStorefrontInstalled  -AdminAddress "localhost"
+
+Get-SfCluster  -AdminAddress "localhost"
+
+New-SfCluster  -AdminAddress "localhost" -FarmName "Uptick Capital" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -ServerName "XD.ntnxlab.local" -StorefrontUrl "http://xd.ntnxlab.local/" -XmlServices @("http://xd.ntnxlab.local/")
+
+Set-ConfigSiteMetadata  -AdminAddress "localhost" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Name "Citrix_StoreFront_Cluster_Id" -Value "d43cc342-5626-4af7-bfc4-c3da7378f58a"
+
+Set-ConfigSiteMetadata  -AdminAddress "localhost" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Name "CertificateHash" -Value "mPapw+W/8L+215I5JInbRHAoGC5E6l07iv0fexu6fFQB5Is3WDs+KIOboQvdkhSzIaw8KFZ1gBFqsa8vWoGnFg=="
+
+Set-HypAdminConnection  -AdminAddress "localhost"
+
+Get-ChildItem  -LiteralPath @("XDHyp:\Connections")
+
+Set-HypAdminConnection  -AdminAddress "localhost"
+
+Remove-Item  -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Path @("XDHyp:\Connections\POC026")
+
+Set-HypAdminConnection  -AdminAddress "localhost"
+
+New-Item  -ConnectionType "Custom" -CustomProperties "" -HypervisorAddress @("10.21.26.37") -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -Path @("XDHyp:\Connections\POC026") -Persist -PluginId "AcropolisFactory" -Scope @() -SecurePassword "System.Security.SecureString" -UserName "xd" -ZoneUid "06cdfd16-a589-48cb-bdae-c0d660a990f5"
+
+New-BrokerHypervisorConnection  -AdminAddress "localhost" -HypHypervisorConnectionUid "40ea9be9-85ac-4fb0-bee0-5211f1fd3569" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4"
+
+Set-HypAdminConnection  -AdminAddress "localhost"
+
+New-Item  -HypervisorConnectionName "POC026" -JobGroup "646a354f-4ca0-46a8-9fcc-707623b4bb4f" -LoggingId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -NetworkPath @("XDHyp:\Connections\POC026\Secondary.network") -Path @("XDHyp:\HostingUnits\POC026") -PersonalvDiskStoragePath @() -RootPath "XDHyp:\Connections\POC026" -StoragePath @()
+
+Set-HypAdminConnection  -AdminAddress "localhost"
+
+Get-Item  -LiteralPath @("XDHyp:\Connections\POC026")
+
+Stop-LogHighLevelOperation  -AdminAddress "localhost" -EndTime "3/28/2018 9:44:28 AM" -HighLevelOperationId "e2b65584-3994-4d5f-8b45-b8e3a6a35ee4" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 2:44 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Run Tests
+# 
+# 3/28/2018 2:56 AM
+# 
+New-EnvTestDiscoveryTargetDefinition -AdminAddress "xd.ntnxlab.local:80" -TestSuiteId "Infrastructure" | Set-Variable -Name "testTarget0"
+
+Get-Variable -Name @("testTarget0") -ValueOnly | Start-EnvTestTask -AdminAddress "xd.ntnxlab.local:80" -RunAsynchronously
+
+Remove-Variable  -Name "testTarget0"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 2:58 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:30 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:33 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:33 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:33 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:33 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:33 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "(SessionSupport -eq `"SingleSession`")" -MaxRecordCount 500 -Property @("DNSName","CatalogName","DesktopGroupName","AssociatedUserNames","InMaintenanceMode","PersistUserChanges","PowerState","RegistrationState","MachineName","Uid","DesktopUid","DesktopKind","HypervisorConnectionUid","HypHypervisorConnectionUid","ProvisioningType","PvdStage","LastDeregistrationReason","FaultState","Tags","CatalogUid","DesktopGroupUid","SessionCount","Capabilities","SupportedPowerActions") -ReturnTotalRecordCount -Skip 0 -SortBy "+DNSName"
+# Get-BrokerMachine : Returned 0 of 0 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Create Machine Catalog 'WIN10 Non-Pers 2vCPU 4GB'
+# 
+# 3/28/2018 3:39 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:37:03 AM" -Text "Create Machine Catalog `'WIN10 Non-Pers 2vCPU 4GB`'"
+
+New-BrokerCatalog  -AdminAddress "xd.ntnxlab.local:80" -AllocationType "Random" -IsRemotePC $False -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -MinimumFunctionalLevel "L7_9" -Name "WIN10 Non-Pers 2vCPU 4GB" -PersistUserChanges "Discard" -ProvisioningType "MCS" -Scope @() -SessionSupport "SingleSession" -ZoneUid "06cdfd16-a589-48cb-bdae-c0d660a990f5"
+
+New-AcctIdentityPool  -AdminAddress "xd.ntnxlab.local:80" -AllowUnicode -Domain "ntnxlab.local" -IdentityPoolName "WIN10 Non-Pers 2vCPU 4GB" -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -NamingScheme "W10NP-###" -NamingSchemeType "Numeric" -Scope @()
+
+Set-BrokerCatalogMetadata  -AdminAddress "xd.ntnxlab.local:80" -CatalogId 1 -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -Name "Citrix_DesktopStudio_IdentityPoolUid" -Value "3c97fac2-5bda-4460-bca5-ee7acf07b7a2"
+
+Test-ProvSchemeNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -ProvisioningSchemeName @("WIN10 Non-Pers 2vCPU 4GB")
+
+New-ProvScheme  -AdminAddress "xd.ntnxlab.local:80" -CleanOnBoot -CustomProperties "<CustomProperties xmlns=`"http://schemas.citrix.com/2014/xd/machinecreation`">`r`n  <StringProperty Name=`"ContainerPath`" Value=`"/11.storage`"/>`r`n  <StringProperty Name=`"vCPU`" Value=`"2`"/>`r`n  <StringProperty Name=`"RAM`" Value=`"4096`"/>`r`n  <StringProperty Name=`"CPUCores`" Value=`"1`"/>`r`n</CustomProperties>" -HostingUnitName "POC026" -IdentityPoolName "WIN10 Non-Pers 2vCPU 4GB" -InitialBatchSizeHint 5 -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -MasterImageVM "XDHyp:\HostingUnits\POC026\W10-Gold v1.0 - Post-VDA 7.15 Install.template" -Metadata @{"NutanixCoresPerCpu"="1";"NutanixContainerId"="11"} -NetworkMapping @{"0"="XDHyp:\HostingUnits\POC026\Secondary.network"} -ProvisioningSchemeName "WIN10 Non-Pers 2vCPU 4GB" -RunAsynchronously -Scope @() -VMCpuCount 2 -VMMemoryMB 4096
+
+Get-ProvTask  -AdminAddress "xd.ntnxlab.local:80" -MaxRecordCount 2147483647 -TaskId "f6c3ee1d-9ad8-4d36-b6d1-2d9fe537dcba"
+
+Set-BrokerCatalog  -AdminAddress "xd.ntnxlab.local:80" -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -Name "WIN10 Non-Pers 2vCPU 4GB" -ProvisioningSchemeId "4f075988-d116-4dc6-a47c-56d74d48dd6a"
+
+Add-ProvSchemeControllerAddress  -AdminAddress "xd.ntnxlab.local:80" -ControllerAddress @("XD.ntnxlab.local") -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -ProvisioningSchemeName "WIN10 Non-Pers 2vCPU 4GB"
+
+Get-AcctADAccount  -AdminAddress "xd.ntnxlab.local:80" -IdentityPoolUid "3c97fac2-5bda-4460-bca5-ee7acf07b7a2" -Lock $False -MaxRecordCount 2147483647 -State "Available"
+
+New-AcctADAccount  -AdminAddress "xd.ntnxlab.local:80" -Count 5 -IdentityPoolUid "3c97fac2-5bda-4460-bca5-ee7acf07b7a2" -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48"
+
+Get-ProvScheme  -AdminAddress "xd.ntnxlab.local:80" -MaxRecordCount 2147483647 -ProvisioningSchemeName "WIN10 Non-Pers 2vCPU 4GB"
+
+New-ProvVM  -ADAccountName @("NTNXLAB\W10NP-001$","NTNXLAB\W10NP-002$","NTNXLAB\W10NP-003$","NTNXLAB\W10NP-004$","NTNXLAB\W10NP-005$") -AdminAddress "xd.ntnxlab.local:80" -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -ProvisioningSchemeName "WIN10 Non-Pers 2vCPU 4GB" -RunAsynchronously
+
+Lock-ProvVM  -AdminAddress "xd.ntnxlab.local:80" -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -ProvisioningSchemeName "WIN10 Non-Pers 2vCPU 4GB" -Tag "Brokered" -VMID @("3ed99043-40f5-446c-83a1-cf6a16a4e1e6","0cb10c0d-c154-4c0b-8fbb-f8d9f6818a7f","49e3549f-d02f-4678-b6d6-8fe8e2d463c6","eeb61509-8ff4-436c-a3c3-1140a6ddb2fb")
+
+New-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -CatalogUid 1 -MachineName "S-1-5-21-4204467112-2374781681-2534117708-1240"
+
+New-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -CatalogUid 1 -MachineName "S-1-5-21-4204467112-2374781681-2534117708-1241"
+
+New-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -CatalogUid 1 -MachineName "S-1-5-21-4204467112-2374781681-2534117708-1237"
+
+New-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -CatalogUid 1 -MachineName "S-1-5-21-4204467112-2374781681-2534117708-1238"
+
+Lock-ProvVM  -AdminAddress "xd.ntnxlab.local:80" -LoggingId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -ProvisioningSchemeName "WIN10 Non-Pers 2vCPU 4GB" -Tag "Brokered" -VMID @("70b77470-4a62-4959-be7b-aa322d8b4b9c")
+
+New-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -CatalogUid 1 -MachineName "S-1-5-21-4204467112-2374781681-2534117708-1239"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:39:13 AM" -HighLevelOperationId "8e2aeda3-6453-4003-bce3-fd6d5bf85b48" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Set Site metadata property 'Studio_SiteConfigurationComplete' to value 'True'
+# 
+# 3/28/2018 3:39 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:39:13 AM" -Text "Set Site metadata property `'Studio_SiteConfigurationComplete`' to value `'True`'"
+
+Set-ConfigSiteMetadata  -AdminAddress "xd.ntnxlab.local:80" -LoggingId "16a9818f-b5dc-437f-bcbb-9bda70555709" -Name "Studio_SiteConfigurationComplete" -Value "True"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:39:13 AM" -HighLevelOperationId "16a9818f-b5dc-437f-bcbb-9bda70555709" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:39 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:39 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:41 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Create Machine 'Pooled Win10 desktops' in Delivery Group 'LAB Delivery'
+# 
+# 3/28/2018 3:44 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:44:21 AM" -Text "Create Machine `'Pooled Win10 desktops`' in Delivery Group `'LAB Delivery`'"
+
+New-BrokerEntitlementPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -Description "Non Persistent Win10 2vCPU 4GB" -DesktopGroupUid 1 -Enabled $True -IncludedUserFilterEnabled $False -IncludedUsers @() -LoggingId "8a99f184-567d-472b-a466-f843ec59684d" -Name "Pooled Win10 desktops" -PublishedName "Pooled Win10 desktops"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:44:21 AM" -HighLevelOperationId "8a99f184-567d-472b-a466-f843ec59684d" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Create Delivery Group 'LAB Delivery'
+# 
+# 3/28/2018 3:44 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:44:18 AM" -Text "Create Delivery Group `'LAB Delivery`'"
+
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter {(Uid -eq 1)} -MaxRecordCount 1
+
+New-BrokerDesktopGroup  -AdminAddress "xd.ntnxlab.local:80" -ColorDepth "TwentyFourBit" -DeliveryType "DesktopsAndApps" -DesktopKind "Shared" -InMaintenanceMode $False -IsRemotePC $False -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -MinimumFunctionalLevel "L7_9" -Name "LAB Delivery" -OffPeakBufferSizePercent 10 -PeakBufferSizePercent 10 -PublishedName "LAB Delivery" -Scope @() -SecureIcaRequired $False -SessionSupport "SingleSession" -ShutdownDesktopsAfterUse $True -TimeZone "Pacific Standard Time"
+
+Set-BrokerDesktopGroup  -AdminAddress "xd.ntnxlab.local:80" -InputObject @(1) -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -PassThru -ZonePreferences @("ApplicationHome","UserHome","UserLocation")
+
+Add-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroup "LAB Delivery" -InputObject @(1,4,5,3,2) -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9"
+
+Test-BrokerAppEntitlementPolicyRuleNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("LAB Delivery")
+
+New-BrokerAppEntitlementPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroupUid 1 -Enabled $True -IncludedUserFilterEnabled $False -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -Name "LAB Delivery"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106","S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+New-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Name "NTNXLAB\SSP Basic Users"
+
+Test-BrokerAccessPolicyRuleNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("LAB Delivery_Direct")
+
+New-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -AllowedConnections "NotViaAG" -AllowedProtocols @("HDX","RDP") -AllowedUsers "Filtered" -AllowRestart $True -DesktopGroupUid 1 -Enabled $True -IncludedSmartAccessFilterEnabled $True -IncludedUserFilterEnabled $True -IncludedUsers @("S-1-5-21-4204467112-2374781681-2534117708-1106") -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -Name "LAB Delivery_Direct"
+
+Test-BrokerAccessPolicyRuleNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("LAB Delivery_AG")
+
+New-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -AllowedConnections "ViaAG" -AllowedProtocols @("HDX","RDP") -AllowedUsers "Filtered" -AllowRestart $True -DesktopGroupUid 1 -Enabled $True -IncludedSmartAccessFilterEnabled $True -IncludedSmartAccessTags @() -IncludedUserFilterEnabled $True -IncludedUsers @("S-1-5-21-4204467112-2374781681-2534117708-1106") -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -Name "LAB Delivery_AG"
+
+Test-BrokerPowerTimeSchemeNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("LAB Delivery_Weekdays")
+
+New-BrokerPowerTimeScheme  -AdminAddress "xd.ntnxlab.local:80" -DaysOfWeek "Weekdays" -DesktopGroupUid 1 -DisplayName "Weekdays" -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -Name "LAB Delivery_Weekdays" -PeakHours @($False,$False,$False,$False,$False,$False,$False,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$False,$False,$False,$False,$False) -PoolSize @(0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0)
+
+Test-BrokerPowerTimeSchemeNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("LAB Delivery_Weekend")
+
+New-BrokerPowerTimeScheme  -AdminAddress "xd.ntnxlab.local:80" -DaysOfWeek "Weekend" -DesktopGroupUid 1 -DisplayName "Weekend" -LoggingId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -Name "LAB Delivery_Weekend" -PeakHours @($False,$False,$False,$False,$False,$False,$False,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$False,$False,$False,$False,$False) -PoolSize @(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:44:22 AM" -HighLevelOperationId "8fa5cae5-71fd-447c-8827-72d6e4c949d9" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:44 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Edit Delivery Group 'LAB Delivery'
+# 
+# 3/28/2018 3:46 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:46:19 AM" -Text "Edit Delivery Group `'LAB Delivery`'"
+
+Set-BrokerPowerTimeScheme  -AdminAddress "xd.ntnxlab.local:80" -DisplayName "Weekdays" -LoggingId "7e546220-dbc6-4254-9ec9-758814e48c42" -Name "LAB Delivery_Weekdays" -PoolSize @(0,0,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0) -PoolUsingPercentage $False
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedSmartAccessFilterEnabled $True -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "7e546220-dbc6-4254-9ec9-758814e48c42" -Name "LAB Delivery_Direct"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "7e546220-dbc6-4254-9ec9-758814e48c42" -Name "LAB Delivery_AG"
+
+Get-BrokerRebootSchedule  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroupUid 1
+
+# Get-BrokerRebootSchedule : Object does not exist
+# 
+# 	+ CategoryInfo : ObjectNotFound: (:) [Get-BrokerRebootSchedule], SdkOperationException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.UnknownObject,Citrix.Broker.Admin.SDK.GetBrokerRebootScheduleCommand
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:46:20 AM" -HighLevelOperationId "7e546220-dbc6-4254-9ec9-758814e48c42" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Edit Delivery Group 'LAB Delivery'
+# 
+# 3/28/2018 3:46 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:46:27 AM" -Text "Edit Delivery Group `'LAB Delivery`'"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedSmartAccessFilterEnabled $True -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "2ad150ce-129e-4377-a19f-6bc3f86b44f2" -Name "LAB Delivery_Direct"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "2ad150ce-129e-4377-a19f-6bc3f86b44f2" -Name "LAB Delivery_AG"
+
+Get-BrokerRebootSchedule  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroupUid 1
+
+# Get-BrokerRebootSchedule : Object does not exist
+# 
+# 	+ CategoryInfo : ObjectNotFound: (:) [Get-BrokerRebootSchedule], SdkOperationException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.UnknownObject,Citrix.Broker.Admin.SDK.GetBrokerRebootScheduleCommand
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:46:28 AM" -HighLevelOperationId "2ad150ce-129e-4377-a19f-6bc3f86b44f2" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:46 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Edit Delivery Group 'LAB Delivery'
+# 
+# 3/28/2018 3:51 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:51:46 AM" -Text "Edit Delivery Group `'LAB Delivery`'"
+
+Set-BrokerPowerTimeScheme  -AdminAddress "xd.ntnxlab.local:80" -DisplayName "Weekdays" -LoggingId "59490890-0b8b-433b-8872-1c0b5f7d803c" -Name "LAB Delivery_Weekdays" -PoolSize @(0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0,0,0,0,0) -PoolUsingPercentage $False
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedSmartAccessFilterEnabled $True -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "59490890-0b8b-433b-8872-1c0b5f7d803c" -Name "LAB Delivery_Direct"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "59490890-0b8b-433b-8872-1c0b5f7d803c" -Name "LAB Delivery_AG"
+
+Get-BrokerRebootSchedule  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroupUid 1
+
+# Get-BrokerRebootSchedule : Object does not exist
+# 
+# 	+ CategoryInfo : ObjectNotFound: (:) [Get-BrokerRebootSchedule], SdkOperationException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.UnknownObject,Citrix.Broker.Admin.SDK.GetBrokerRebootScheduleCommand
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:51:47 AM" -HighLevelOperationId "59490890-0b8b-433b-8872-1c0b5f7d803c" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Edit Delivery Group 'LAB Delivery'
+# 
+# 3/28/2018 3:51 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 10:51:51 AM" -Text "Edit Delivery Group `'LAB Delivery`'"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedSmartAccessFilterEnabled $True -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "91a2e8b4-a79d-4c4d-9c04-acbe09cbe6e8" -Name "LAB Delivery_Direct"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedUsers @("NTNXLAB\SSP Basic Users") -LoggingId "91a2e8b4-a79d-4c4d-9c04-acbe09cbe6e8" -Name "LAB Delivery_AG"
+
+Get-BrokerRebootSchedule  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroupUid 1
+
+# Get-BrokerRebootSchedule : Object does not exist
+# 
+# 	+ CategoryInfo : ObjectNotFound: (:) [Get-BrokerRebootSchedule], SdkOperationException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.UnknownObject,Citrix.Broker.Admin.SDK.GetBrokerRebootScheduleCommand
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1106")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 10:51:51 AM" -HighLevelOperationId "91a2e8b4-a79d-4c4d-9c04-acbe09cbe6e8" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:51 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:52 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:52 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:52 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "(((DesktopGroupName -eq `"LAB Delivery`")) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 500 -Property @("DNSName","CatalogName","DesktopGroupName","AssociatedUserNames","InMaintenanceMode","PersistUserChanges","PowerState","RegistrationState","MachineName","Uid","DesktopUid","DesktopKind","HypervisorConnectionUid","HypHypervisorConnectionUid","ProvisioningType","PvdStage","LastDeregistrationReason","FaultState","Tags","CatalogUid","DesktopGroupUid","SessionCount","Capabilities","SupportedPowerActions") -ReturnTotalRecordCount -Skip 0 -SortBy "+DNSName"
+# Get-BrokerMachine : Returned 5 of 5 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "(((DesktopGroupName -eq `"LAB Delivery`")) -and (SessionSupport -eq `"MultiSession`"))" -MaxRecordCount 500 -Property @("DNSName","CatalogName","DesktopGroupName","InMaintenanceMode","PersistUserChanges","PowerState","RegistrationState","SessionCount","MachineName","Uid","DesktopUid","DesktopKind","HypervisorConnectionUid","HypHypervisorConnectionUid","ProvisioningType","PvdStage","LastDeregistrationReason","FaultState","Tags","CatalogUid","DesktopGroupUid","Capabilities","SupportedPowerActions") -ReturnTotalRecordCount -Skip 0 -SortBy "+DNSName"
+# Get-BrokerMachine : Returned 0 of 0 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "(((DesktopGroupName -eq `"LAB Delivery`")) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 500 -Property @("DNSName","CatalogName","DesktopGroupName","AssociatedUserNames","InMaintenanceMode","PersistUserChanges","PowerState","RegistrationState","MachineName","Uid","DesktopUid","DesktopKind","HypervisorConnectionUid","HypHypervisorConnectionUid","ProvisioningType","PvdStage","LastDeregistrationReason","FaultState","Tags","CatalogUid","DesktopGroupUid","SessionCount","Capabilities","SupportedPowerActions") -ReturnTotalRecordCount -Skip 0 -SortBy "+DNSName"
+# Get-BrokerMachine : Returned 5 of 5 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "((Uid -eq 1) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 2147483647 -ReturnTotalRecordCount -Skip 0
+# Get-BrokerMachine : Returned 1 of 1 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "((Uid -eq 1) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 2147483647 -ReturnTotalRecordCount -Skip 0
+# Get-BrokerMachine : Returned 1 of 1 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "(((DesktopGroupName -eq `"LAB Delivery`")) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 500 -Property @("DNSName","CatalogName","DesktopGroupName","AssociatedUserNames","InMaintenanceMode","PersistUserChanges","PowerState","RegistrationState","MachineName","Uid","DesktopUid","DesktopKind","HypervisorConnectionUid","HypHypervisorConnectionUid","ProvisioningType","PvdStage","LastDeregistrationReason","FaultState","Tags","CatalogUid","DesktopGroupUid","SessionCount","Capabilities","SupportedPowerActions") -ReturnTotalRecordCount -Skip 0 -SortBy "+DNSName"
+# Get-BrokerMachine : Returned 5 of 5 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "((Uid -eq 1) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 2147483647 -ReturnTotalRecordCount -Skip 0
+# Get-BrokerMachine : Returned 1 of 1 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 3:53 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "((Uid -eq 1) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 2147483647 -ReturnTotalRecordCount -Skip 0
+# Get-BrokerMachine : Returned 1 of 1 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:56 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 3:56 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:00 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Create Machine Catalog 'Windows 10 Persisitent 2vCPU 4GB'
+# 
+# 3/28/2018 4:04 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 11:02:59 AM" -Text "Create Machine Catalog `'Windows 10 Persisitent 2vCPU 4GB`'"
+
+New-BrokerCatalog  -AdminAddress "xd.ntnxlab.local:80" -AllocationType "Permanent" -IsRemotePC $False -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -MinimumFunctionalLevel "L7_9" -Name "Windows 10 Persisitent 2vCPU 4GB" -PersistUserChanges "OnLocal" -ProvisioningType "MCS" -Scope @() -SessionSupport "SingleSession" -ZoneUid "06cdfd16-a589-48cb-bdae-c0d660a990f5"
+
+New-AcctIdentityPool  -AdminAddress "xd.ntnxlab.local:80" -AllowUnicode -Domain "ntnxlab.local" -IdentityPoolName "Windows 10 Persisitent 2vCPU 4GB" -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -NamingScheme "W10P-###" -NamingSchemeType "Numeric" -Scope @()
+
+Set-BrokerCatalogMetadata  -AdminAddress "xd.ntnxlab.local:80" -CatalogId 2 -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -Name "Citrix_DesktopStudio_IdentityPoolUid" -Value "ec4c5836-aed3-49a7-9aad-f73c2f56cd45"
+
+Test-ProvSchemeNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -ProvisioningSchemeName @("Windows 10 Persisitent 2vCPU 4GB")
+
+New-ProvScheme  -AdminAddress "xd.ntnxlab.local:80" -CustomProperties "<CustomProperties xmlns=`"http://schemas.citrix.com/2014/xd/machinecreation`">`r`n  <StringProperty Name=`"ContainerPath`" Value=`"/11.storage`"/>`r`n  <StringProperty Name=`"vCPU`" Value=`"2`"/>`r`n  <StringProperty Name=`"RAM`" Value=`"4096`"/>`r`n  <StringProperty Name=`"CPUCores`" Value=`"1`"/>`r`n</CustomProperties>" -HostingUnitName "POC026" -IdentityPoolName "Windows 10 Persisitent 2vCPU 4GB" -InitialBatchSizeHint 2 -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -MasterImageVM "XDHyp:\HostingUnits\POC026\W10-Gold v1.0 - Post-VDA 7.15 Install.template" -Metadata @{"NutanixCoresPerCpu"="1";"NutanixContainerId"="11"} -NetworkMapping @{"0"="XDHyp:\HostingUnits\POC026\Secondary.network"} -ProvisioningSchemeName "Windows 10 Persisitent 2vCPU 4GB" -RunAsynchronously -Scope @() -VMCpuCount 2 -VMMemoryMB 4096
+
+Get-ProvTask  -AdminAddress "xd.ntnxlab.local:80" -MaxRecordCount 2147483647 -TaskId "224bdd3e-7547-4a6b-89b8-fe18eaa0e545"
+
+Set-BrokerCatalog  -AdminAddress "xd.ntnxlab.local:80" -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -Name "Windows 10 Persisitent 2vCPU 4GB" -ProvisioningSchemeId "a99d8acb-bc2f-4b8c-97e3-bf89791d006d"
+
+Add-ProvSchemeControllerAddress  -AdminAddress "xd.ntnxlab.local:80" -ControllerAddress @("XD.ntnxlab.local") -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -ProvisioningSchemeName "Windows 10 Persisitent 2vCPU 4GB"
+
+Get-AcctADAccount  -AdminAddress "xd.ntnxlab.local:80" -IdentityPoolUid "ec4c5836-aed3-49a7-9aad-f73c2f56cd45" -Lock $False -MaxRecordCount 2147483647 -State "Available"
+
+New-AcctADAccount  -AdminAddress "xd.ntnxlab.local:80" -Count 2 -IdentityPoolUid "ec4c5836-aed3-49a7-9aad-f73c2f56cd45" -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd"
+
+Get-ProvScheme  -AdminAddress "xd.ntnxlab.local:80" -MaxRecordCount 2147483647 -ProvisioningSchemeName "Windows 10 Persisitent 2vCPU 4GB"
+
+New-ProvVM  -ADAccountName @("NTNXLAB\W10P-001$","NTNXLAB\W10P-002$") -AdminAddress "xd.ntnxlab.local:80" -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -ProvisioningSchemeName "Windows 10 Persisitent 2vCPU 4GB" -RunAsynchronously
+
+Lock-ProvVM  -AdminAddress "xd.ntnxlab.local:80" -LoggingId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -ProvisioningSchemeName "Windows 10 Persisitent 2vCPU 4GB" -Tag "Brokered" -VMID @("c0e5d0cf-be31-4e94-8ddb-c76af7080f2b","89221653-f087-4137-8d97-7512961369f7")
+
+New-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -CatalogUid 2 -MachineName "S-1-5-21-4204467112-2374781681-2534117708-1242"
+
+New-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -CatalogUid 2 -MachineName "S-1-5-21-4204467112-2374781681-2534117708-1243"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 11:04:54 AM" -HighLevelOperationId "32be5ba9-ee7e-4c59-b541-d2be48a59afd" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:04 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:07 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Create Machine 'Personal Windows 10 Desktop' in Delivery Group 'W10 Persistent Delivery'
+# 
+# 3/28/2018 4:09 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 11:09:35 AM" -Text "Create Machine `'Personal Windows 10 Desktop`' in Delivery Group `'W10 Persistent Delivery`'"
+
+New-BrokerAssignmentPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -Description "Persistent Windows 10 Desktops 2vCPU 4GB" -DesktopGroupUid 2 -Enabled $True -IncludedUserFilterEnabled $False -IncludedUsers @() -LoggingId "9dc77ff9-26ad-4a17-b66d-00df0efe9629" -MaxDesktops 1 -Name "Personal Windows 10 Desktop" -PublishedName "Personal Windows 10 Desktop"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 11:09:36 AM" -HighLevelOperationId "9dc77ff9-26ad-4a17-b66d-00df0efe9629" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Create Delivery Group 'W10 Persistent Delivery'
+# 
+# 3/28/2018 4:09 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 11:09:34 AM" -Text "Create Delivery Group `'W10 Persistent Delivery`'"
+
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter {(Uid -eq 7)} -MaxRecordCount 1
+
+New-BrokerDesktopGroup  -AdminAddress "xd.ntnxlab.local:80" -ColorDepth "TwentyFourBit" -DeliveryType "DesktopsOnly" -DesktopKind "Private" -InMaintenanceMode $False -IsRemotePC $False -LoggingId "5bba0887-d58d-46ea-9a60-5ab8245c61e3" -MinimumFunctionalLevel "L7_9" -Name "W10 Persistent Delivery" -OffPeakBufferSizePercent 10 -PeakBufferSizePercent 10 -PublishedName "W10 Persistent Delivery" -Scope @() -SecureIcaRequired $False -SessionSupport "SingleSession" -ShutdownDesktopsAfterUse $False -TimeZone "Pacific Standard Time"
+
+Add-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroup "W10 Persistent Delivery" -InputObject @(7,6) -LoggingId "5bba0887-d58d-46ea-9a60-5ab8245c61e3"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1104","S-1-5-21-4204467112-2374781681-2534117708-1104")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+New-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Name "NTNXLAB\SSP Developers"
+
+Test-BrokerAccessPolicyRuleNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("W10 Persistent Delivery_Direct")
+
+New-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -AllowedConnections "NotViaAG" -AllowedProtocols @("HDX","RDP") -AllowedUsers "Filtered" -AllowRestart $True -DesktopGroupUid 2 -Enabled $True -IncludedSmartAccessFilterEnabled $True -IncludedUserFilterEnabled $True -IncludedUsers @("S-1-5-21-4204467112-2374781681-2534117708-1104") -LoggingId "5bba0887-d58d-46ea-9a60-5ab8245c61e3" -Name "W10 Persistent Delivery_Direct"
+
+Test-BrokerAccessPolicyRuleNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("W10 Persistent Delivery_AG")
+
+New-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -AllowedConnections "ViaAG" -AllowedProtocols @("HDX","RDP") -AllowedUsers "Filtered" -AllowRestart $True -DesktopGroupUid 2 -Enabled $True -IncludedSmartAccessFilterEnabled $True -IncludedSmartAccessTags @() -IncludedUserFilterEnabled $True -IncludedUsers @("S-1-5-21-4204467112-2374781681-2534117708-1104") -LoggingId "5bba0887-d58d-46ea-9a60-5ab8245c61e3" -Name "W10 Persistent Delivery_AG"
+
+Test-BrokerPowerTimeSchemeNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("W10 Persistent Delivery_Weekdays")
+
+New-BrokerPowerTimeScheme  -AdminAddress "xd.ntnxlab.local:80" -DaysOfWeek "Weekdays" -DesktopGroupUid 2 -DisplayName "Weekdays" -LoggingId "5bba0887-d58d-46ea-9a60-5ab8245c61e3" -Name "W10 Persistent Delivery_Weekdays" -PeakHours @($False,$False,$False,$False,$False,$False,$False,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$False,$False,$False,$False,$False) -PoolSize @(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+
+Test-BrokerPowerTimeSchemeNameAvailable  -AdminAddress "xd.ntnxlab.local:80" -Name @("W10 Persistent Delivery_Weekend")
+
+New-BrokerPowerTimeScheme  -AdminAddress "xd.ntnxlab.local:80" -DaysOfWeek "Weekend" -DesktopGroupUid 2 -DisplayName "Weekend" -LoggingId "5bba0887-d58d-46ea-9a60-5ab8245c61e3" -Name "W10 Persistent Delivery_Weekend" -PeakHours @($False,$False,$False,$False,$False,$False,$False,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$False,$False,$False,$False,$False) -PoolSize @(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 11:09:36 AM" -HighLevelOperationId "5bba0887-d58d-46ea-9a60-5ab8245c61e3" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:09 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Rename Delivery Group 'LAB Delivery' to 'W10 Non-Persistent Delivery'
+# 
+# 3/28/2018 4:09 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 11:09:54 AM" -Text "Rename Delivery Group `'LAB Delivery`' to `'W10 Non-Persistent Delivery`'"
+
+Rename-BrokerDesktopGroup  -AdminAddress "xd.ntnxlab.local:80" -LoggingId "b3d55601-7703-4eb2-b678-d906e3e8b739" -Name "LAB Delivery" -NewName "W10 Non-Persistent Delivery"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 11:09:55 AM" -HighLevelOperationId "b3d55601-7703-4eb2-b678-d906e3e8b739" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:09 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:12 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:12 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 4:12 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "(((DesktopGroupName -eq `"W10 Persistent Delivery`")) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 500 -Property @("DNSName","CatalogName","DesktopGroupName","AssociatedUserNames","InMaintenanceMode","PersistUserChanges","PowerState","RegistrationState","MachineName","Uid","DesktopUid","DesktopKind","HypervisorConnectionUid","HypHypervisorConnectionUid","ProvisioningType","PvdStage","LastDeregistrationReason","FaultState","Tags","CatalogUid","DesktopGroupUid","SessionCount","Capabilities","SupportedPowerActions") -ReturnTotalRecordCount -Skip 0 -SortBy "+DNSName"
+# Get-BrokerMachine : Returned 2 of 2 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:13 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:13 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Run Tests
+# 
+# 3/28/2018 4:15 AM
+# 
+New-EnvTestDiscoveryTargetDefinition -AdminAddress "xd.ntnxlab.local:80" -TargetId "7accdc31-467e-4a7a-826c-2e3795f8b813" -TargetIdType "DesktopGroup" -TestSuiteId "DesktopGroup" | Set-Variable -Name "testTarget0"
+
+Get-Variable -Name @("testTarget0") -ValueOnly | Start-EnvTestTask -AdminAddress "xd.ntnxlab.local:80" -RunAsynchronously
+
+Remove-Variable  -Name "testTarget0"
+# Script completed successfully
+
+# 
+# Edit Delivery Group 'W10 Persistent Delivery'
+# 
+# 3/28/2018 4:15 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 11:15:58 AM" -Text "Edit Delivery Group `'W10 Persistent Delivery`'"
+
+Set-BrokerPowerTimeScheme  -AdminAddress "xd.ntnxlab.local:80" -DisplayName "Weekdays" -LoggingId "6020effc-1eb6-4c10-a0b6-13eb7985ee0e" -Name "W10 Persistent Delivery_Weekdays" -PeakHours @($False,$False,$False,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$True,$False,$False,$False,$False,$False) -PoolUsingPercentage $False
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1104")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedSmartAccessFilterEnabled $True -IncludedUsers @("NTNXLAB\SSP Developers") -LoggingId "6020effc-1eb6-4c10-a0b6-13eb7985ee0e" -Name "W10 Persistent Delivery_Direct"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1104")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedUsers @("NTNXLAB\SSP Developers") -LoggingId "6020effc-1eb6-4c10-a0b6-13eb7985ee0e" -Name "W10 Persistent Delivery_AG"
+
+Get-BrokerRebootSchedule  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroupUid 2
+
+# Get-BrokerRebootSchedule : Object does not exist
+# 
+# 	+ CategoryInfo : ObjectNotFound: (:) [Get-BrokerRebootSchedule], SdkOperationException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.UnknownObject,Citrix.Broker.Admin.SDK.GetBrokerRebootScheduleCommand
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1104")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 11:15:58 AM" -HighLevelOperationId "6020effc-1eb6-4c10-a0b6-13eb7985ee0e" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Edit Delivery Group 'W10 Persistent Delivery'
+# 
+# 3/28/2018 4:16 AM
+# 
+Get-LogSite  -AdminAddress "xd.ntnxlab.local:80"
+
+Start-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -Source "Studio" -StartTime "3/28/2018 11:16:01 AM" -Text "Edit Delivery Group `'W10 Persistent Delivery`'"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1104")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedSmartAccessFilterEnabled $True -IncludedUsers @("NTNXLAB\SSP Developers") -LoggingId "9196c74b-2152-4681-8541-a33f94819fdb" -Name "W10 Persistent Delivery_Direct"
+
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1104")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Set-BrokerAccessPolicyRule  -AdminAddress "xd.ntnxlab.local:80" -IncludedUsers @("NTNXLAB\SSP Developers") -LoggingId "9196c74b-2152-4681-8541-a33f94819fdb" -Name "W10 Persistent Delivery_AG"
+
+Get-BrokerRebootSchedule  -AdminAddress "xd.ntnxlab.local:80" -DesktopGroupUid 2
+
+# Get-BrokerRebootSchedule : Object does not exist
+# 
+# 	+ CategoryInfo : ObjectNotFound: (:) [Get-BrokerRebootSchedule], SdkOperationException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.UnknownObject,Citrix.Broker.Admin.SDK.GetBrokerRebootScheduleCommand
+Set-Variable  -Name "brokerUsers" -Value @("S-1-5-21-4204467112-2374781681-2534117708-1104")
+
+Get-BrokerUser  -AdminAddress "xd.ntnxlab.local:80" -Filter {(SID -in $brokerUsers)} -MaxRecordCount 2147483647
+
+Remove-Variable  -Name "brokerUsers"
+
+Stop-LogHighLevelOperation  -AdminAddress "xd.ntnxlab.local:80" -EndTime "3/28/2018 11:16:01 AM" -HighLevelOperationId "9196c74b-2152-4681-8541-a33f94819fdb" -IsSuccessful $True
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:16 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:24 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:24 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:24 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get the certificate for the Licensing Service
+# 
+# 3/28/2018 4:24 AM
+# 
+Get-LicCertificate  -AdminAddress "https://xd.ntnxlab.local:8083/"
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 4:24 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "(((DesktopGroupName -eq `"W10 Persistent Delivery`")) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 500 -Property @("DNSName","CatalogName","DesktopGroupName","AssociatedUserNames","InMaintenanceMode","PersistUserChanges","PowerState","RegistrationState","MachineName","Uid","DesktopUid","DesktopKind","HypervisorConnectionUid","HypHypervisorConnectionUid","ProvisioningType","PvdStage","LastDeregistrationReason","FaultState","Tags","CatalogUid","DesktopGroupUid","SessionCount","Capabilities","SupportedPowerActions") -ReturnTotalRecordCount -Skip 0 -SortBy "+DNSName"
+# Get-BrokerMachine : Returned 2 of 2 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 4:24 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "((Uid -eq 7) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 2147483647 -ReturnTotalRecordCount -Skip 0
+# Get-BrokerMachine : Returned 1 of 1 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
+# 
+# Get Machines
+# 
+# 3/28/2018 4:24 AM
+# 
+Get-BrokerMachine  -AdminAddress "xd.ntnxlab.local:80" -Filter "((Uid -eq 7) -and (SessionSupport -eq `"SingleSession`"))" -MaxRecordCount 2147483647 -ReturnTotalRecordCount -Skip 0
+# Get-BrokerMachine : Returned 1 of 1 items
+# 
+# 	+ CategoryInfo : OperationStopped: (:) [Get-BrokerMachine], PartialDataException
+# 	+ FullyQualifiedErrorId : Citrix.XDPowerShell.Broker.PartialData,Citrix.Broker.Admin.SDK.GetBrokerMachineCommand
+# Script completed successfully
+
